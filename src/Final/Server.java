@@ -17,6 +17,7 @@ import java.util.StringTokenizer;
 
 /**
  * Group 14 Final Project CS492 - Server Class
+ * Group Members: Tom R. & Bart S.
  * 
  * The server class must be launched before the client class. This class
  * accepts a socket connection through port 6013. Once a connection is 
@@ -67,7 +68,6 @@ public class Server {
             gen.generate();
         }
 
-        // CONSIDER MOVING THIS INITIALIZATION INTO WHILE LOOP
         int counter = 0;
         DataPacket data;
         RSAhandler handler = new RSAhandler(privKey, clientKey);
@@ -100,7 +100,7 @@ public class Server {
                     if (counter == 0) {
                         // Receive name and nonce
                         data = (DataPacket) inFromClient.readObject();
-                        System.out.println(data.getName() + "is trying to connect...");
+                        System.out.println(data.getName() + " is trying to connect...");
                         r = data.getR();
 
                         // Send [{R,K}.Client].Server

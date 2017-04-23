@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 
 /**
  * Final Project CS492 - Client Class
+ * Group Members: Tom R. & Bart S.
  * 
  * The server class must be launched before the client class. This class
  * sends a socket connection request to port 6013 on local host (127.0.0.1). 
@@ -48,7 +49,7 @@ public class Client {
         System.out.println("---CLIENT---");
 
         // Get the client keys for RSA
-        File pubKey = new File(PUBLIC_KEY);  // <----------------- Probably don't need this key
+        File pubKey = new File(PUBLIC_KEY);
         File privKey = new File(PRIVATE_KEY);
         File servKey = new File(SERVER_PUBLIC_KEY);
 
@@ -135,10 +136,6 @@ public class Client {
                     
                 } else {
                     // Symmetric encryption chat
-//                    String r = bout.readLine();
-//                    pw.println(r);
-//                    message = bin.readLine();
-//                    System.out.println("Server Says: " + message);
                     String r = bout.readLine();
                     
                     // Create a new cipher object and set key
