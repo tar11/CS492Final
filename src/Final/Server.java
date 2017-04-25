@@ -140,8 +140,11 @@ public class Server {
                         // Send encryption all ready confirmation
                         if (initialization == true) {
                             data.setMessage("Encryption ready.");
+                            System.out.println("Encryption ready.");
+                            System.out.println("~~~~~~~~~~~~");
                         } else {
                             data.setMessage("Encryption initialization failed.");
+                            System.out.println("Warning: Encryption failed.");
                         }
                         outToClient.writeObject(data);
                         
@@ -154,17 +157,17 @@ public class Server {
                 a51.setKey(KEY);
                 
                 // Symmetric encryption message transfer
-                while ((message = bin.readLine()) != null) {
+                while ((message = bin.readLine()) != null && initialization == true) {
                     a51.setMessage(message);
                     System.out.println("Client Message Encrypted: " + message);
                     System.out.println("Client Message Decrypted: " + a51.cipher());
                     
                     // Get message, encipher, and send
+                    System.out.print(">>");
                     String line = bout.readLine();
                     a51.setMessage(line);
                     pw.println(a51.cipher());
                 }
-                
                 client.close();
             }
         } catch (Exception e) {

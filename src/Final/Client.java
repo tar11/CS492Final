@@ -132,10 +132,12 @@ public class Client {
                         }
 
                         System.out.println("Client encryption initialization: " + initialization);
+                        System.out.println("~~~~~~~~~~~~");
                     }
                     
-                } else {
+                } else if (initialization == true) {
                     // Symmetric encryption chat
+                    System.out.print(">>");
                     String r = bout.readLine();
                     
                     // Create a new cipher object and set key
@@ -152,6 +154,8 @@ public class Client {
                     System.out.println("Server Message Encrypted: " + message);
                     System.out.println("Server Message Decrypted: " + a51.cipher());
                     
+                } else if (counter >= 2 && initialization == false) {
+                    System.exit(0);
                 }
 
                 counter++;
